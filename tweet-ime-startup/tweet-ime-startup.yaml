@@ -1,0 +1,30 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: tweet-ime-startup
+  labels:
+    name: tweet-ime-startup
+spec:
+  schedule: "0 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          labels:
+            name: tweet-ime-startup
+        spec:
+          volumes:
+          - name: google-cloud-key
+            secret:
+              secretName: scheduler-key
+          containers:
+          - name: tweet-ime-startup
+            image: gcr.io/[PROJECT-ID]/tweet-ime-startup:latest
+            volumeMounts:
+            - name: google-cloud-key
+              mountPath: /var/secrets/google
+            env:
+            - name: GOOGLE_APPLICATION_CREDENTIALS
+              value: /var/secrets/google/key.json
+          restartPolicy: OnFailure
+        

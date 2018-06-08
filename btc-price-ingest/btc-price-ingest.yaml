@@ -1,0 +1,26 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: btc-price-ingest
+  labels:
+    name: btc-price-ingest
+spec:
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          labels:
+            name: btc-price-ingest
+        spec:
+          containers:
+          - name: btc-price-ingest
+            image: gcr.io/[PROJECT-ID]/btc-price-ingest:latest
+            env:
+            - name: PROJECT_ID
+              value: [PROJECT-ID]
+            - name: BQ_DATASET
+              value: rtda
+            - name: BQ_TABLE
+              value: btc_pricing
+          restartPolicy: OnFailure

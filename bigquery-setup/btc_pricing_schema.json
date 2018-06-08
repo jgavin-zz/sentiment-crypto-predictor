@@ -1,0 +1,57 @@
+[
+    {
+      "name": "id",
+      "type": "INTEGER",
+      "mode": "NULLABLE"
+    },
+    {
+      "name": "timestamp",
+      "type": "TIMESTAMP",
+      "mode": "NULLABLE"
+    },
+    {
+      "name": "last",
+      "type": "FLOAT",
+      "mode": "NULLABLE"
+    },
+    {
+      "name": "lowestAsk",
+      "type": "FLOAT",
+      "mode": "NULLABLE"
+    },
+    {
+      "name": "highestBid",
+      "type": "FLOAT",
+      "mode": "NULLABLE"
+    },
+    {
+      "name": "percentChange",
+      "type": "FLOAT",
+      "mode": "NULLABLE"
+    },
+    {
+      "name": "baseVolume",
+      "type": "FLOAT",
+      "mode": "NULLABLE"
+    },
+    {
+      "name": "quoteVolume",
+      "type": "FLOAT",
+      "mode": "NULLABLE"
+    },
+    {
+      "name": "isFrozen",
+      "type": "INTEGER",
+      "mode": "NULLABLE"
+    },
+    {
+      "name": "high24hr",
+      "type": "FLOAT",
+      "mode": "NULLABLE"
+    },
+    {
+      "name": "low24hr",
+      "type": "FLOAT",
+      "mode": "NULLABLE"
+    }
+  ]

@@ -1,0 +1,25 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: tweet-model
+  labels:
+    name: tweet-model
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        name: tweet-model
+    spec:
+      containers:
+      - name: tweet-model
+        image: gcr.io/[PROJECT-ID]/tweet-model:latest
+        env:
+        - name: PUBSUB_TOPIC_INGEST
+          value: projects/[PROJECT-ID]/topics/tweet-ingest
+        - name: PUBSUB_TOPIC_MODEL
+          value: projects/[PROJECT-ID]/topics/tweet-model
+        - name: PROJECT_ID
+          value: [PROJECT-ID]
+        - name: RUNTIME
+          value: "5"

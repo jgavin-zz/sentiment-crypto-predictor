@@ -1,0 +1,31 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: tweet-ingest
+  labels:
+    name: tweet-ingest
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: tweet-ingest
+    spec:
+      containers:
+      - name: tweet-ingest
+        image: gcr.io/[PROJECT-ID]/tweet-ingest:latest
+        env:
+        - name: PUBSUB_TOPIC_INGEST
+          value: projects/[PROJECT-ID]/topics/tweet-ingest
+        - name: CONSUMERKEY
+          value: XXXXXXXXXXXXXXX
+        - name: CONSUMERSECRET
+          value: XXXXXXXXXXXXXXX
+        - name: ACCESSTOKEN
+          value: XXXXXXXXXXXXXXX
+        - name: ACCESSTOKENSEC
+          value: XXXXXXXXXXXXXXX
+        - name: TWSTREAMMODE
+          value: filter
+        - name: RUNTIME
+          value: "5"

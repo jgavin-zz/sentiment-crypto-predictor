@@ -1,0 +1,26 @@
+[{
+    "name": "created_at",
+    "type": "TIMESTAMP",
+    "mode": "NULLABLE"
+},
+{
+    "name": "text",
+    "type": "STRING",
+    "mode": "NULLABLE"
+},
+{
+    "name": "polarity",
+    "type": "FLOAT",
+    "mode": "NULLABLE"
+},
+{
+    "name": "magnitude",
+    "type": "FLOAT",
+    "mode": "NULLABLE"
+},
+{
+    "name": "score",
+    "type": "FLOAT",
+    "mode": "NULLABLE"
+}
+]

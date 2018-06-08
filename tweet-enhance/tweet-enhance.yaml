@@ -1,0 +1,29 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: tweet-enhance
+  labels:
+    name: tweet-enhance
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        name: tweet-enhance
+    spec:
+      containers:
+      - name: tweet-enhance
+        image: gcr.io/[PROJECT-ID]/tweet-enhance:latest
+        env:
+        - name: PUBSUB_TOPIC_MODEL
+          value: projects/[PROJECT-ID]/topics/tweet-model
+        - name: ML_API_KEY
+          value: XXXXXXXXXXXXXXXXXXXX
+        - name: PROJECT_ID
+          value: [PROJECT-ID]
+        - name: BQ_DATASET
+          value: rtda
+        - name: BQ_TABLE
+          value: enhanced_tweets
+        - name: RUNTIME
+          value: "5"
